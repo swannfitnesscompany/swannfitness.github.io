@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 p {
@@ -39,6 +39,46 @@ button:hover {
   display: flex;
 } */
 /* end of global styling  */
+
+/* page layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas:
+    "menu showcase showcase showcase"
+    "menu aboutUs aboutUs aboutUs"
+    "menu programs programs programs"
+    "footer footer footer footer";
+}
+
+header {
+  grid-area: menu;
+  border: solid 3px blue;
+
+}
+
+
+.showcase {
+  grid-area: showcase;
+}
+
+.aboutUsContainer {
+  grid-area: aboutUs;
+}
+
+.programsContainer {
+  grid-area: programs;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/* end of page layout */
+
+
+
 /* sticky header/navbar styling */
 header {
   font-family: 'Langar', cursive;
@@ -49,7 +89,7 @@ header {
   padding: 20px 0%;
   position: sticky;
   top: 0;
-  background-color: #333;
+  background-color: #161616;
 }
 
 #nav-bar {
@@ -91,15 +131,18 @@ header li, header a, header button {
   flex-direction: column;
   /* justify-content: center; <---used 20% padding on .showcase h1 instead */
   text-align: center;
-  background-color: #453;
+  background-color: #ccc;
   padding: 0 2em;
+  background-image: url("/images/erlingBio.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .showcase h1 {
   font-size: 3em;
   padding: 15% 0 1em 0;
   font-family: 'Permanent Marker', cursive;
-      font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', serif;
 }
 
 .showcase p {
@@ -110,17 +153,31 @@ header li, header a, header button {
 /* about section styling */
 
 
+
 .aboutUsContainer {
   padding: 1vh 1vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
+.aboutUs {
+  text-align: center;
+  padding: 3em;
+
+}
+
+
+
+.aboutUs h4, .aboutUs h5, .aboutUs p {
+  padding: 1em;
+  font-family: Dosis;
+}
+
 .bioCard {
   height: 50vh;
   border-radius: 5px;
   line-height: 2em;
-  background: #ddd;
+  background: #fff;
   padding: 1em;
   margin: 1em;
   box-shadow: 0 5px 4px rgba(0,0,0,.5);
@@ -159,9 +216,9 @@ div#hardy {
 }
 
 div#erling {
-  opacity: .3;
   background-image: url(/images/erlingBio.jpg);
   background-size: cover;
+  background-position: center;
 }
 
 div .wrapper:hover {
@@ -177,7 +234,7 @@ div .wrapper:hover {
 #programs {
   text-align: center;
   padding: 30px;
-  background-color: #453;
+  background-color: red;
   height: auto;
   padding: 10vh;
 }
@@ -190,7 +247,7 @@ div .wrapper:hover {
 .tenday, .twentyday, .thirtyday {
   border-radius: 5px;
   line-height: 2em;
-  background: #ddd;
+  background: blue;
   padding: 1em;
   margin: 1em;
   box-shadow: 0 5px 4px rgba(0,0,0,.5);
@@ -208,12 +265,11 @@ div .wrapper:hover {
 footer {
   height: auto;
   text-align: center;
-  background-color: #333;
+  background-color: #161616;
   color: #ccc;
 }
 
 .social-menu {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
